@@ -1,9 +1,4 @@
 var startModal = document.getElementById("startModal");
-var modals1 = document.getElementById("M1");
-var modals2 = document.getElementById("M2");
-var modals3 = document.getElementById("M3");
-var modals4 = document.getElementById("M4");
-var modals5 = document.getElementById("M5");
 
 var nextModal = document.getElementById("nextModal");
 var endModal = document.getElementById("endModal");
@@ -11,28 +6,9 @@ var endModal = document.getElementById("endModal");
 let startbtn = document.getElementsByClassName("startbtn")[0];
 
 startbtn.addEventListener('click',function (){
-    modals1.classList.add('active');
+    startModal.classList.remove('active');
 });
 
-function click(mod1,mod2){
-    mod1.addEventListener('click',function (){
-        mod2.classList.add('active');
-    });
-}
-
-click(modals1,modals2);
-click(modals2,modals3);
-click(modals3,modals4);
-click(modals4,modals5);
-
-modals5.addEventListener('click',function (){
-    modals4.classList.remove('active');
-    modals3.classList.remove('active');
-    modals2.classList.remove('active');
-    modals1.classList.remove('active');
-    modals5.classList.remove('active');
-    startModal.classList.remove('active');
-})
 
 let currentLevel = 1;
 function nextLevel(){

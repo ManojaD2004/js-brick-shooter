@@ -457,7 +457,7 @@ body {
 }
 .active{
     display: flex;
-    animation: cards 2s ease;
+    animation: cards 0.5s ease;
 }
 @keyframes cards {
     from{
