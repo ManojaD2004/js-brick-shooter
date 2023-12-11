@@ -1,3 +1,5 @@
+## NOTE: This is not my game. The original owner of this game is [untitled-team-101](https://github.com/untitled-team-101/Bricks-Breaker) . I clone their Repo for educational purpose. To make an AI that plays and learns from itself, Reinforment Learning.
+
 ![Bricks-Breaker](https://raw.githubusercontent.com/untitled-team-101/Bricks-Breaker/main/assets/Bricks-Breaker.png)
 
 Bricks Breaker Game - A fun game made with HTML5, CSS3 and JavaScript
