@@ -148,9 +148,13 @@
       <div class="score">Score: <span id="score">10000</span></div>
     </div>
     <div id="pop-up-left" class="pop-up-left">
-        <div onclick="open_pop()" class="pop-show-close">
-        <div class="pop-up-left-img"></div>
-    </div>
+      <div
+        id="pop-show-close"
+        class="pop-show-close"
+        onclick="open_pop()"
+      ></div>
+      <div onclick="HandleAI()" class="ai-button">AI Play</div>
+      <div class="ai-desc" id="ai-desc">AI is Not Playing</div>
     </div>
   </body>
 </html>

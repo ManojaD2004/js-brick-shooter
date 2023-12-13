@@ -18,7 +18,7 @@ let ballsDirection = {
 };
 let movementPhysics = 25; // Movement speed of pad on keyboard controls
 
-mainContainer.addEventListener("mousemove", (event) => {
+function handleMouseMove(event) {
   let padLeft = event.clientX - event.target.offsetLeft;
   padLeft -= pad.offsetWidth / 2;
   if (padLeft < 0) return;
@@ -28,7 +28,9 @@ mainContainer.addEventListener("mousemove", (event) => {
     ballLeft = padLeft + pad.offsetWidth / 2 - ball.offsetWidth / 2;
     mainContainer.style.setProperty("--ball-left", ballLeft.toString());
   }
-});
+}
+
+mainContainer.addEventListener("mousemove", handleMouseMove);
 
 window.addEventListener("keydown", (event) => {
   let padLeft = +mainContainer.style.getPropertyValue("--pad-left");
@@ -300,6 +302,7 @@ let randomNo = Math.random() * 150;
 function RandomNo() {
   randomNo = Math.random() * 150;
 }
+
 function AIPlaying() {
   let padLeft = ballLeft - randomNo;
   if (padLeft < 0) return;
@@ -310,21 +313,43 @@ let is_open_pop = false;
 
 function open_pop() {
   if (is_open_pop === false) {
+    document
+      .getElementById("pop-up-left")
+      .classList.remove("pop_up_ani_play_close");
     document.getElementById("pop-up-left").classList.add("pop_up_ani_play");
-    setTimeout(() => {
-      document
-        .getElementById("pop-up-left")
-        .classList.remove("pop_up_ani_play_close");
-    }, 500);
+    document
+      .getElementById("pop-show-close")
+      .classList.add("pop-show-close-rev");
     is_open_pop = true;
   } else {
+    document.getElementById("pop-up-left").classList.remove("pop_up_ani_play");
     document
       .getElementById("pop-up-left")
       .classList.add("pop_up_ani_play_close");
-    setTimeout(() => {
-      document.getElementById("pop-up-left").classList.remove("pop_up_ani_play");
-    }, 500);
+    document
+      .getElementById("pop-show-close")
+      .classList.remove("pop-show-close-rev");
     is_open_pop = false;
+  }
+}
+
+let RandomNoId;
+let AIPlayingID;
+let AIPlay = false;
+
+function HandleAI() {
+  if (AIPlay === false) {
+    RandomNoId = setInterval(RandomNo, 20);
+    AIPlayingID = setInterval(AIPlaying, 10);
+    document.getElementById("ai-desc").innerHTML = "AI is Playing";
+    mainContainer.removeEventListener("mousemove", handleMouseMove);
+    AIPlay = true;
+  } else {
+    clearInterval(RandomNoId);
+    clearInterval(AIPlayingID);
+    mainContainer.addEventListener("mousemove", handleMouseMove);
+    document.getElementById("ai-desc").innerHTML = "AI is Not Playing";
+    AIPlay = false;
   }
 }
 
