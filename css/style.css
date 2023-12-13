@@ -34,7 +34,7 @@ body {
     align-content: center;
     align-items: center;
     justify-content: center;
-    background-image: url("../img/bg.gif");
+    background-color: black;
     background-size: cover;
     overflow: hidden;
 }
@@ -490,4 +490,49 @@ body {
 }
 .next{
     cursor: pointer;
+}
+
+@keyframes pop_up_ani {
+    from{
+        right: -200px;
+    }
+    to {
+        right: 0px;
+    }
+}
+
+@keyframes pop_up_ani_close {
+    from{
+        right: 0px;
+    }
+    to {
+        right: -200px;
+    }
+}
+
+.pop_up_ani_play {
+    animation: 0.5s pop_up_ani 0s ease-in-out forwards;
+}
+
+.pop_up_ani_play_close {
+    animation: 0.5s pop_up_ani_close 0s ease-in-out forwards;
+}
+
+.pop-up-left {
+    position: absolute;
+    width: 200px;
+    height: 100vh;
+    right: -200px;
+    background-color: red;
+}
+
+.pop-show-close {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 100px;
+    right: 200px;
+    box-shadow: inset 0 0 20px #61d08a;
+    border: 2px solid #53d884;
+    background-color: black;
 }

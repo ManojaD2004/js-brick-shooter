@@ -125,4 +125,4 @@ function generateLevelZero()
     generateBricks(2,'l1');
 }
 
-generateLevelFive();
+generateLevelOne();

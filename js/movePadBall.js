@@ -295,10 +295,38 @@ ballLeft = pad.offsetWidth / 2 - ball.offsetWidth / 2;
 mainContainer.style.setProperty("--ball-left", ballLeft.toString());
 mainContainer.style.setProperty("--ball-top", ballTop.toString());
 
+let randomNo = Math.random() * 150;
+
+function RandomNo() {
+  randomNo = Math.random() * 150;
+}
 function AIPlaying() {
-  let padLeft = ballLeft;
+  let padLeft = ballLeft - randomNo;
   if (padLeft < 0) return;
   mainContainer.style.setProperty("--pad-left", padLeft.toString());
 }
 
-setInterval(AIPlaying, 10);
+let is_open_pop = false;
+
+function open_pop() {
+  if (is_open_pop === false) {
+    document.getElementById("pop-up-left").classList.add("pop_up_ani_play");
+    setTimeout(() => {
+      document
+        .getElementById("pop-up-left")
+        .classList.remove("pop_up_ani_play_close");
+    }, 500);
+    is_open_pop = true;
+  } else {
+    document
+      .getElementById("pop-up-left")
+      .classList.add("pop_up_ani_play_close");
+    setTimeout(() => {
+      document.getElementById("pop-up-left").classList.remove("pop_up_ani_play");
+    }, 500);
+    is_open_pop = false;
+  }
+}
+
+// setInterval(RandomNo, 50);
+// setInterval(AIPlaying, 10);
