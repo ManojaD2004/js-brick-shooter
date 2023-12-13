@@ -519,20 +519,34 @@ body {
 }
 
 .pop-up-left {
+    box-sizing: border-box;
     position: absolute;
     width: 200px;
     height: 100vh;
     right: -200px;
-    background-color: red;
+    background-color: rgb(0, 0, 0);
+    box-shadow: inset 0 0 20px #6de445;
+    border: 3px solid #6de445;
 }
 
+
 .pop-show-close {
+    margin: 0;
+    box-sizing: border-box;
     position: absolute;
     width: 50px;
     height: 50px;
     top: 100px;
-    right: 200px;
-    box-shadow: inset 0 0 20px #61d08a;
-    border: 2px solid #53d884;
+    right: 195px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    box-shadow: inset 0 0 20px #6de445;
+    border: 3px solid #6de445;
     background-color: black;
+    background-image: url('../img/left-arrow.gif');
+    /* transform: scaleX(-1); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
 }
